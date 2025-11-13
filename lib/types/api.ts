@@ -802,6 +802,12 @@ export interface Zigbee2MQTTAPI {
           }
         | Record<string, never>;
 
+    "bridge/request/touchlink/factory_reset_hue": {
+        serial_numbers: number[];
+    };
+
+    "bridge/response/touchlink/factory_reset_hue": Record<string, never>;
+
     "bridge/request/touchlink/scan": "";
 
     "bridge/response/touchlink/scan": {
@@ -905,6 +911,7 @@ export type Zigbee2MQTTRequestEndpoints =
     | "bridge/request/group/members/remove"
     | "bridge/request/group/members/remove_all"
     | "bridge/request/touchlink/factory_reset"
+    | "bridge/request/touchlink/factory_reset_hue"
     | "bridge/request/touchlink/scan"
     | "bridge/request/touchlink/identify"
     | "{friendlyNameOrId}/set"
@@ -950,6 +957,7 @@ export type Zigbee2MQTTResponseEndpoints =
     | "bridge/response/group/members/remove"
     | "bridge/response/group/members/remove_all"
     | "bridge/response/touchlink/factory_reset"
+    | "bridge/response/touchlink/factory_reset_hue"
     | "bridge/response/touchlink/scan"
     | "bridge/response/touchlink/identify";
 

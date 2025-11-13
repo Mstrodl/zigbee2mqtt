@@ -406,6 +406,10 @@ export default class Zigbee {
         return await this.herdsman.touchlinkFactoryReset(ieeeAddr, channel);
     }
 
+    async touchlinkFactoryResetHue(serialNumbers: number[]): Promise<void> {
+        return await this.herdsman.touchlinkFactoryResetHue(serialNumbers);
+    }
+
     async addInstallCode(installCode: string): Promise<void> {
         await this.herdsman.addInstallCode(installCode);
     }

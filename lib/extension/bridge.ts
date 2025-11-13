@@ -44,6 +44,7 @@ export default class Bridge extends Extension {
         restart: this.restart,
         backup: this.backup,
         "touchlink/factory_reset": this.touchlinkFactoryReset,
+        "touchlink/factory_reset_hue": this.touchlinkFactoryResetHue,
         "touchlink/identify": this.touchlinkIdentify,
         "install_code/add": this.installCodeAdd,
         "touchlink/scan": this.touchlinkScan,
@@ -409,6 +410,23 @@ export default class Bridge extends Extension {
 
         logger.error("Failed to factory reset device through Touchlink");
         throw new Error("Failed to factory reset device through Touchlink");
+    }
+
+    @bind async touchlinkFactoryResetHue(message: KeyValue | string): Promise<Zigbee2MQTTResponse<"bridge/response/touchlink/factory_reset_hue">> {
+        const payload: Zigbee2MQTTAPI["bridge/response/touchlink/factory_reset_hue"] = {};
+
+        if (typeof message !== "object" || !message.serial_numbers?.length) {
+            throw new Error("Invalid payload");
+        }
+
+        logger.info(`Start Philips Hue Touchlink factory reset of: ${message.serial_numbers.join(", ")}`);
+        await this.zigbee.touchlinkFactoryResetHue(message.serial_numbers);
+
+        // We have no idea if it worked or not
+        logger.info(
+            "Successfully sent reset messages for devices through Philips Hue Touchlink. They should try to join the network soon if it's open.",
+        );
+        return utils.getResponse(message, payload);
     }
 
     @bind async touchlinkScan(message: KeyValue | string): Promise<Zigbee2MQTTResponse<"bridge/response/touchlink/scan">> {

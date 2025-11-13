@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  zigbee-herdsman: 6.3.2
+  zigbee-herdsman: git+https://github.com/Mstrodl/zigbee-herdsman#feature/mstrodl/hue-reset
 
 importers:
 
@@ -72,8 +72,8 @@ importers:
         specifier: ^8.18.1
         version: 8.18.3
       zigbee-herdsman:
-        specifier: 6.3.2
-        version: 6.3.2
+        specifier: git+https://github.com/Mstrodl/zigbee-herdsman#feature/mstrodl/hue-reset
+        version: https://codeload.github.com/Mstrodl/zigbee-herdsman/tar.gz/d8ad81ac6b3b19fb10112405217f43b6fa03642f
       zigbee-herdsman-converters:
         specifier: 25.59.0
         version: 25.59.0
@@ -218,9 +218,6 @@ packages:
 
   '@dabh/diagnostics@2.0.8':
     resolution: {integrity: sha512-R4MSXTVnuMzGD7bzHdW2ZhhdPC/igELENcq5IjEverBvq5hn1SXCWcsi6eSsdWP0/Ur+SItRRjAktmdoX/8R/Q==}
-
-  '@date-fns/tz@1.4.1':
-    resolution: {integrity: sha512-P5LUNhtbj6YfI3iJjw5EL9eUAG6OitD0W3fWQcpQjDRc/QIsL0tRNuO1PcDvPccWL1fSTXXdE1ds+l95DV/OFA==}
 
   '@esbuild/aix-ppc64@0.25.5':
     resolution: {integrity: sha512-9o3TMmpmftaCMepOdA5k/yDw8SfInyzWWTjYTFCX3kPSDJMROQTb8jg+h9Cnwnmm1vOzvxN7gIfB5V2ewpjtGA==}
@@ -1472,8 +1469,9 @@ packages:
     resolution: {integrity: sha512-Pw0L88hLQgv1vxv3uTFKbPDaMd75zuNWIcM0Y8+F0uKDZt8K8djEiBK74RlWYmHcrvBfzeRM61Jw/991/TShcw==}
     engines: {node: '>=20.15.0'}
 
-  zigbee-herdsman@6.3.2:
-    resolution: {integrity: sha512-35qPU1KoADQrgIol/pWulVKRj8jFpuogtPWjisHSlss3dvzlj5yg5wBdw9/qpcDxNShtKMtj1K28io5KMmRsAw==}
+  zigbee-herdsman@https://codeload.github.com/Mstrodl/zigbee-herdsman/tar.gz/d8ad81ac6b3b19fb10112405217f43b6fa03642f:
+    resolution: {tarball: https://codeload.github.com/Mstrodl/zigbee-herdsman/tar.gz/d8ad81ac6b3b19fb10112405217f43b6fa03642f}
+    version: 6.2.0
 
   zigbee-on-host@0.1.13:
     resolution: {integrity: sha512-mL7s9ic7J85YI7wOG1/QlbRYE3haFzIHqgnM2+xLmjj8CazjhmGjop9TCfuY2JXyDI9ss7bNCLxuI9n6M+TXug==}
@@ -1553,8 +1551,6 @@ snapshots:
       '@so-ric/colorspace': 1.1.6
       enabled: 2.0.0
       kuler: 2.0.0
-
-  '@date-fns/tz@1.4.1': {}
 
   '@esbuild/aix-ppc64@0.25.5':
     optional: true
@@ -2758,13 +2754,12 @@ snapshots:
     dependencies:
       iconv-lite: 0.7.0
       semver: 7.7.3
-      zigbee-herdsman: 6.3.2
+      zigbee-herdsman: https://codeload.github.com/Mstrodl/zigbee-herdsman/tar.gz/d8ad81ac6b3b19fb10112405217f43b6fa03642f
     transitivePeerDependencies:
       - supports-color
 
-  zigbee-herdsman@6.3.2:
+  zigbee-herdsman@https://codeload.github.com/Mstrodl/zigbee-herdsman/tar.gz/d8ad81ac6b3b19fb10112405217f43b6fa03642f:
     dependencies:
-      '@date-fns/tz': 1.4.1
       '@serialport/bindings-cpp': 13.0.1
       '@serialport/parser-delimiter': 13.0.0
       '@serialport/stream': 13.0.0
